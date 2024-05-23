@@ -69,13 +69,13 @@ readonly class Confirmatio
             $confirmation = Confirmation::query()->findOrFail($id);
         }
 
-        if (!$id) {
+        if (! $id) {
             $confirmation = $this
                 ->request
                 ->route('confirmation');
         }
 
-        throw_if(!$confirmation, new ModelNotFoundException());
+        throw_if(! $confirmation, new ModelNotFoundException());
 
         return $confirmation;
     }
