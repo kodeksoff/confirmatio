@@ -4,12 +4,24 @@ declare(strict_types=1);
 
 namespace Kodeksoff\Confirmatio\Models;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Kodeksoff\Confirmatio\Common\PhoneFormatter;
 use Kodeksoff\Confirmatio\Events\ConfirmationCreatedEvent;
 
+/**
+ * @property string $target
+ * @property string $secret
+ * @property int $attempts
+ * @property CarbonImmutable $confirmed_at
+ * @property CarbonImmutable $created_at
+ * @property CarbonImmutable $updated_at
+ * @property-read bool $is_confirmed
+ * @property-read string $email
+ * @property-read PhoneFormatter $phone
+ */
 class Confirmation extends Model
 {
     use HasUuids;
