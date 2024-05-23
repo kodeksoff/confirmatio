@@ -15,9 +15,7 @@ final readonly class CreateConfirmationTargetData implements Stringable
     ) {
     }
 
-    /**
-     * @throws NumberFormatException
-     */
+    /** @throws NumberFormatException */
     public function __toString()
     {
         if ($this->value instanceof PhoneNumber) {
@@ -26,6 +24,6 @@ final readonly class CreateConfirmationTargetData implements Stringable
                 ->format(config('confirmatio.phone.format'));
         }
 
-        return (string) $this->value;
+        return (string)$this->value;
     }
 }

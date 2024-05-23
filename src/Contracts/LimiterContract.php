@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kodeksoff\Confirmatio\Contracts;
 
 use Illuminate\Cache\RateLimiter;

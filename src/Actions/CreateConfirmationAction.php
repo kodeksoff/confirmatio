@@ -17,14 +17,12 @@ final readonly class CreateConfirmationAction
     {
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public function __invoke(CreateConfirmationData $createConfirmationData): Confirmation
     {
         $tooManyAttempts = $this
             ->limiterContract
-            ->tooManyAttempts((string) $createConfirmationData->target);
+            ->tooManyAttempts((string)$createConfirmationData->target);
 
         throw_if(
             $tooManyAttempts,
@@ -32,10 +30,10 @@ final readonly class CreateConfirmationAction
         );
 
         $confirmation = new Confirmation();
-        $confirmation->target = (string) $createConfirmationData->target;
+        $confirmation->target = (string)$createConfirmationData->target;
         $confirmation->secret = $this
             ->hasher
-            ->make((string) $createConfirmationData->code);
+            ->make((string)$createConfirmationData->code);
         $confirmation->attempts = 0;
         $confirmation->confirmed_at = null;
         $confirmation->save();

@@ -23,9 +23,7 @@ readonly class Confirmatio
     ) {
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public function approve(string $code, ?string $id = null): Confirmation
     {
         return ($this->approveConfirmationAction)(
@@ -34,9 +32,7 @@ readonly class Confirmatio
         );
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public function make(string $target, string $code): Confirmation
     {
         return ($this->createConfirmationAction)(
@@ -44,9 +40,7 @@ readonly class Confirmatio
         );
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public function availableIn(?string $id = null): int
     {
         return $this
@@ -58,9 +52,7 @@ readonly class Confirmatio
             );
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     protected function findConfirmation(?string $id = null): Confirmation
     {
         $confirmation = null;
@@ -69,13 +61,13 @@ readonly class Confirmatio
             $confirmation = Confirmation::query()->findOrFail($id);
         }
 
-        if (! $id) {
+        if (!$id) {
             $confirmation = $this
                 ->request
                 ->route('confirmation');
         }
 
-        throw_if(! $confirmation, new ModelNotFoundException());
+        throw_if(!$confirmation, new ModelNotFoundException());
 
         return $confirmation;
     }

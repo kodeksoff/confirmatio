@@ -25,15 +25,13 @@ class PruneConfirmationsCommand extends Command
         parent::__construct();
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public function handle(): void
     {
         $hours = $this->option('hours');
 
         throw_if(
-            ! is_numeric($hours),
+            !is_numeric($hours),
             InvalidArgumentException::class,
         );
 
@@ -46,7 +44,7 @@ class PruneConfirmationsCommand extends Command
                     $this
                         ->carbonImmutable
                         ->now()
-                        ->subHours((int) $hours),
+                        ->subHours((int)$hours),
                 ),
             ),
         );

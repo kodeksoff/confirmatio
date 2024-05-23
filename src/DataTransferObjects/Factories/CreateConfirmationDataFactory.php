@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kodeksoff\Confirmatio\DataTransferObjects\Factories;
 
 use Kodeksoff\Confirmatio\Common\PhoneFormatter;
@@ -11,9 +13,7 @@ use Throwable;
 
 class CreateConfirmationDataFactory
 {
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public static function fromInput(string $target, string $code): CreateConfirmationData
     {
         if (filter_var($target, FILTER_VALIDATE_EMAIL)) {
@@ -26,7 +26,7 @@ class CreateConfirmationDataFactory
         $target = new PhoneFormatter($target);
 
         throw_if(
-            ! $target->isValid(),
+            !$target->isValid(),
             new InvalidTargerValueException(),
         );
 

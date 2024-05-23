@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     // See https://github.com/Propaganistas/Laravel-Phone
     'phone' => [

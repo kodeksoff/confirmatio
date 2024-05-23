@@ -23,9 +23,7 @@ final readonly class ApproveConfirmationAction
     ) {
     }
 
-    /**
-     * @throws Throwable
-     */
+    /** @throws Throwable */
     public function __invoke(Confirmation $confirmation, ConfirmationCodeData $confirmationCodeData): Confirmation
     {
         throw_if(
@@ -40,7 +38,7 @@ final readonly class ApproveConfirmationAction
             ->check($confirmationCodeData->value, $confirmation->secret);
 
         throw_if(
-            ! $hasherCheck,
+            !$hasherCheck,
             tap(new InvalidCodeException(), fn () => $confirmation->save()),
         );
 
