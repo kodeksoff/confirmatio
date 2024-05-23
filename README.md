@@ -5,15 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/kodeksoff/confirmatio/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/kodeksoff/confirmatio/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/kodeksoff/confirmatio.svg?style=flat-square)](https://packagist.org/packages/kodeksoff/confirmatio)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/confirmatio.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/confirmatio)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This package simplifies the creation of functionality for confirming a phone number or email. Uses Laravel's built-in mechanisms to limit attempts, protecting against abuse and increasing the security of your application. The package is easily integrated into existing Laravel projects, providing flexible settings for working with various confirmation delivery channels, such as SMS, Email and other.
 
 ## Installation
 
@@ -34,26 +26,6 @@ You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="confirmatio-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="confirmatio-views"
-```
-
-## Usage
-
-```php
-$confirmatio = new Kodeksoff\Confirmatio();
-echo $confirmatio->echoPhrase('Hello, Kodeksoff!');
 ```
 
 ## Testing
