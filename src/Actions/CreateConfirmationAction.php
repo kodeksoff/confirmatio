@@ -33,7 +33,7 @@ final readonly class CreateConfirmationAction
         $confirmation->target = (string)$createConfirmationData->target;
         $confirmation->secret = $this
             ->hasher
-            ->make((string)$createConfirmationData->code);
+            ->make($createConfirmationData->code);
         $confirmation->attempts = 0;
         $confirmation->confirmed_at = null;
         $confirmation->save();
