@@ -35,13 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Kodeksoff\\Confirmatio\\": "src/",
+            "Kodeksoff\\Confirmatio\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kodeksoff\\Confirmatio\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Kodeksoff\\Confirmatio\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -79,6 +78,6 @@
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
