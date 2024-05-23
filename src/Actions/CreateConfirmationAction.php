@@ -24,7 +24,7 @@ final readonly class CreateConfirmationAction
     {
         $tooManyAttempts = $this
             ->limiterContract
-            ->tooManyAttempts($createConfirmationData->target);
+            ->tooManyAttempts($createConfirmationData->target->value);
 
         throw_if(
             $tooManyAttempts,
@@ -32,10 +32,10 @@ final readonly class CreateConfirmationAction
         );
 
         $confirmation = new Confirmation();
-        $confirmation->target = $createConfirmationData->target;
+        $confirmation->target = $createConfirmationData->target->value;
         $confirmation->secret = $this
             ->hasher
-            ->make($createConfirmationData->code);
+            ->make($createConfirmationData->code->value);
         $confirmation->attempts = 0;
         $confirmation->confirmed_at = null;
         $confirmation->save();

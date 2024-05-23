@@ -19,7 +19,7 @@ readonly class ConfirmatioLimiter implements LimiterContract
         return $this->rateLimiter;
     }
 
-    public function availableIn($key): int
+    public function availableIn(string|int $key): int
     {
         return $this
             ->rateLimiter
@@ -31,7 +31,7 @@ readonly class ConfirmatioLimiter implements LimiterContract
         return $this->tooManyAttempts($confirmation->target, $maxAttempts);
     }
 
-    public function tooManyAttempts($key, int $maxAttempts = 1): bool
+    public function tooManyAttempts(string|int $key, int $maxAttempts = 1): bool
     {
         return $this
             ->rateLimiter
@@ -46,7 +46,7 @@ readonly class ConfirmatioLimiter implements LimiterContract
         $this->hit($confirmation->target, $delaySeconds);
     }
 
-    public function hit($key, int $delaySeconds = 60): void
+    public function hit(string|int $key, int $delaySeconds = 60): void
     {
         $this
             ->rateLimiter

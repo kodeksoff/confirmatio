@@ -15,7 +15,7 @@ use Kodeksoff\Confirmatio\Events\ConfirmationCreatedEvent;
  * @property string $target
  * @property string $secret
  * @property int $attempts
- * @property CarbonImmutable $confirmed_at
+ * @property CarbonImmutable|null $confirmed_at
  * @property CarbonImmutable $created_at
  * @property CarbonImmutable $updated_at
  * @property-read bool $is_confirmed
